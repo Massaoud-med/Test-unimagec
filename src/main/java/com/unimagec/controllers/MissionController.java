@@ -23,7 +23,7 @@ import com.unimagec.security.services.serviceMissionImpl;
 
 @RestController
 //CrossOriginest est un mécanisme qui permet partage de ressources entre origines multiples.
-@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 @RequestMapping("/api/v1")
 public class MissionController {
 	

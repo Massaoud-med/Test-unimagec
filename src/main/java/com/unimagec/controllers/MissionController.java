@@ -31,25 +31,25 @@ public class MissionController {
 	private serviceMissionImpl  serviceMissionImpl;
 	
 	@GetMapping("/Missions")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
 	public ResponseEntity<List<Mission>> getAllMissions() {
 		return ResponseEntity.ok().body(serviceMissionImpl.getAllMission());
   }
 	
   @GetMapping("/Missions/{id}")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
 	public ResponseEntity<Mission> getMissionsById(@PathVariable("id") long missionId) {
 		return ResponseEntity.ok().body(serviceMissionImpl.getMissionById(missionId));
 	}
 
   @PostMapping("/Missions")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
 	public ResponseEntity<Mission> createMissions(@RequestBody Mission mission) {
 		return ResponseEntity.ok().body(this.serviceMissionImpl.createMission(mission));
   }
  
 	@PutMapping("/Missions/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
 	public ResponseEntity<Mission> updateMissions(@PathVariable("id") long idMission,
 			@RequestBody Mission mission) {
 		mission.setIdMission(idMission);
@@ -58,7 +58,7 @@ public class MissionController {
 	}
 	
   @DeleteMapping("/Missions/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
   public String deleteMissions(@PathVariable("id") long missionId) {
 		this.serviceMissionImpl.deleteMission(missionId);
 

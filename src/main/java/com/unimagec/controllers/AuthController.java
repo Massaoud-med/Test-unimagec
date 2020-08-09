@@ -86,9 +86,6 @@ public class AuthController {
 				 userDetails.getSexe(),
 				 roles));	
 	}
-	
-	
-	
 
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
@@ -121,8 +118,7 @@ public class AuthController {
 							 signUpRequest.getTypeService(),
 							 signUpRequest.getSituation(),
 							 signUpRequest.getSexe(),
-							 signUpRequest.getRolee()
-							 
+							 signUpRequest.getRolee()	 
 				);
 
 		Set<String> strRoles = signUpRequest.getRole();
@@ -147,7 +143,7 @@ public class AuthController {
 					roles.add(modRole);
 
 					break;
-				default:
+				case "user":
 					Role userRole = roleRepository.findByName(ERole.ROLE_USER)
 							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 					roles.add(userRole);
@@ -156,8 +152,8 @@ public class AuthController {
 		}
 
 		user.setRoles(roles);
-		userRepository.save(user);
+		//userRepository.save(user);
 
-		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+		return ResponseEntity.ok(userRepository.save(user));
 	}
 }

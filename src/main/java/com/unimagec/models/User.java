@@ -66,7 +66,7 @@ public class User {
 	private String situation ;
 	@Column(name = "Sexe")
 	private String sexe ;
-	@Column(name = "Role")
+	@Column(name = "Rolee")
 	private String rolee ;
 
 	@ManyToMany(fetch = FetchType.LAZY)

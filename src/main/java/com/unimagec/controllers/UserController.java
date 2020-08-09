@@ -30,25 +30,25 @@ public class UserController {
 	private serviceUserImpl  utitlisateuryServices;
 	
 	@GetMapping("/utilisateur")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
 	public ResponseEntity<List<User>> getAllUtilisateurs() {
 		return ResponseEntity.ok().body(utitlisateuryServices.getAllUser());
   }
 	
   @GetMapping("/utilisateur/{id}")
-	@PreAuthorize("hasRole('MODERATOR') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public ResponseEntity<User> getUtilisateurById(@PathVariable("id") long utilisateurId) {
 		return ResponseEntity.ok().body(utitlisateuryServices.getUserById(utilisateurId));
 	}
 
   @PostMapping("/utilisateur")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
 	public ResponseEntity<User> createUtilisateur(@RequestBody User utilisateur) {
 		return ResponseEntity.ok().body(this.utitlisateuryServices.createUser(utilisateur));
   }
 
 	@PutMapping("/utilisateur/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
 	public ResponseEntity<User> updateUtilisateur(@PathVariable("id") long idUser,
 			@RequestBody User utilisateur) {
 		utilisateur.setId(idUser);
@@ -56,7 +56,7 @@ public class UserController {
 	}
 	
   @DeleteMapping("/utilisateur/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
   public String deleteUtilisateur(@PathVariable("id") long utilisateurId) {
 		this.utitlisateuryServices.deleteUser(utilisateurId);
 

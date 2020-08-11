@@ -45,9 +45,9 @@ public class User {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	@Column(name = "Date_Naissanace")
-	private Date    dateNaissanace ;
+	private Date dateNaissance ;
 	@Column(name = "Lieu_Naissance")
-	private String lieuNaissanace ;
+	private String lieuNaissance ;
 	@Column(name = "Tele_stagiaire")
 	private String tele;
 	@Column(name = "Niveau_Etude")
@@ -82,7 +82,7 @@ public class User {
 
 	public User(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email,
 			@NotBlank @Size(max = 120) String password, String nom, String prenom, String adress, String cin,
-			Date dateNaissanace, String lieuNaissanace, String tele, String niveauEtude, Date dateEntrer,
+			Date dateNaissance, String lieuNaissance, String tele, String niveauEtude, Date dateEntrer,
 			Date dateSortir, String typeService, String situation, String sexe, String rolee) {
 		super();
 		this.username = username;
@@ -92,8 +92,8 @@ public class User {
 		this.prenom = prenom;
 		this.adress = adress;
 		this.cin = cin;
-		this.dateNaissanace = dateNaissanace;
-		this.lieuNaissanace = lieuNaissanace;
+		this.dateNaissance = dateNaissance;
+		this.lieuNaissance = lieuNaissance;
 		this.tele = tele;
 		this.niveauEtude = niveauEtude;
 		this.dateEntrer = dateEntrer;
@@ -157,25 +157,25 @@ public class User {
 
 
 	public Date getDateNaissanace() {
-		return dateNaissanace;
+		return dateNaissance;
 	}
 
 
 
-	public void setDateNaissanace(Date dateNaissanace) {
-		this.dateNaissanace = dateNaissanace;
+	public void setDateNaissance(Date dateNaissance) {
+		this.dateNaissance = dateNaissance;
 	}
 
 
 
-	public String getLieuNaissanace() {
-		return lieuNaissanace;
+	public String getLieuNaissance() {
+		return lieuNaissance;
 	}
 
 
 
-	public void setLieuNaissanace(String lieuNaissanace) {
-		this.lieuNaissanace = lieuNaissanace;
+	public void setLieuNaissance(String lieuNaissance) {
+		this.lieuNaissance = lieuNaissance;
 	}
 
 

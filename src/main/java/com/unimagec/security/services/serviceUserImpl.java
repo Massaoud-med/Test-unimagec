@@ -40,8 +40,8 @@ public class serviceUserImpl  implements serviceUser{
 			utitlisateurUpdate.setPrenom(user.getPrenom());
 			utitlisateurUpdate.setAdress(user.getAdress());
 			utitlisateurUpdate.setCin(user.getCin());
-			utitlisateurUpdate.setDateNaissanace(user.getDateNaissanace());
-			utitlisateurUpdate.setLieuNaissanace(user.getLieuNaissanace());
+			utitlisateurUpdate.setDateNaissance(user.getDateNaissanace());
+			utitlisateurUpdate.setLieuNaissance(user.getLieuNaissance());
 			utitlisateurUpdate.setNiveauEtude(user.getNiveauEtude());
 			utitlisateurUpdate.setDateEntrer(user.getDateEntrer());
 			utitlisateurUpdate.setDateSortir(user.getDateSortir());

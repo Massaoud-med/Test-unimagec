@@ -83,7 +83,7 @@ public class UserDetailsImpl implements UserDetails {
 				user.getAdress(),
 				user.getCin(),
 				user.getDateNaissanace(),
-				user.getLieuNaissanace(),
+				user.getLieuNaissance(),
 				user.getTele(),
 				user.getNiveauEtude(),
 				user.getDateEntrer(),
